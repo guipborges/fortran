@@ -1,0 +1,8 @@
+# Simple example of the input to the units_module program
+#
+m              # meter
+m2             # square meter
+J              # joule
+N              # newton
+m * m => m2    # we can multiply meters
+N * m => J     # we can multiply newton and meter to get joule

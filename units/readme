@@ -1,0 +1,37 @@
+Simple preprocessor programs to allow the compiler to check units at compile time:
+
+(This is inspired by a note dd. 31 january 2004 by Van Snyder)
+
+1. The program to be checked uses "UNIT(m2)" etc. to define the unit in which a variable
+   is to be expressed.
+
+2. The program preproc_units preprocesses the source code to turn the UNIT() attribute
+   into a corresponding derived type:
+
+   preproc_units -checkunits filename
+
+   The result is in the file _filename
+
+   (-checkunits is required, but its converse is not implemented yet)
+
+3. The program units_module creates a module "physical_units" based on a simple
+   description of the units and the valid operations.
+
+The files included here can be used as follows:
+
+- Build the programs preproc_units and units_module from their respective sources.
+
+- Preprocess the sample code for checking:
+
+      preproc_units -checkunits test_units.f90
+
+      (result: _test_units.f90)
+
+- Generate the physical_units module by running the program units_module
+  (result: physical_units.f90 and physical_units_include.f90)
+
+- Use the preprocessed source in _test_units.f90 to check if all operations
+  make sense:
+
+  Simply compile _test_units.f90 (make sure the physical_units module is available)
+
