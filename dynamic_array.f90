@@ -13,7 +13,7 @@ program dynArray
 
     print *, myArray
 
-    deallocate(myArray)
+    deallocate(myArray) 
 
 
 end program dynArray
